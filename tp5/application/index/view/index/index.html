@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>博客</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <link href="__STATIC__/index/style/lady.css" type="text/css" rel="stylesheet"/>
+    <script type='text/javascript' src='__STATIC__/index/style/ismobile.js'></script>
+</head>
+
+<body>
+{:widget('Common/header')}
+<!--顶部通栏-->
+<div class="position"></div>
+<div class="overall">
+    {:widget('Common/right')}
+    <div class="left">
+        {foreach $articleData as $v}
+        <div class="xnews2">
+            <div class="pic"><a target="_blank" href="{:url('Article/article',['id'=>$v.id])}"><img
+                    src="{$v.pic}" alt="{$v.title}"/></a></div>
+            <div class="dec">
+                <h3><a target="_blank" href="{:url('Article/article',['id'=>$v.id])}">{$v.title}</a></h3>
+                <div class="time">{$v.time|date="Y-m-d H:i:s",###}</div>
+                <p>{$v.desc} </p>
+                <div class="time"><a href='z97712.html'>{$v.keywords}</a></div>
+            </div>
+        </div>
+        {/foreach}
+        <div class="pages">
+            <div class="plist">
+                <ul>
+                   {$articleData->render()}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--控制器下面的方法-->
+</div>
+
+{:widget('Common/footer')}
+
+<div style="display:none;">
+    <script src='__STATIC__/index/goto/my-65537.js' language='javascript'></script>
+    <script src="images/js/count_zixun.js" language="JavaScript"></script>
+</div>
+
+</body>
+</html>
